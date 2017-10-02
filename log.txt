@@ -1,0 +1,18 @@
+======================
+===== MUSIC DATA =====
+======================
+Artist: Kanye West
+Song: All Falls Down
+Preview song: null
+Album: The College Dropout (Explicit)
+======================
+===== MOVIE DATA =====
+======================
+Title: Gladiator
+Year: 2000
+IMDB Rating: 8.5/10
+Rotten Tomatoes Rating: 76%
+Country: USA, UK
+Langauge: English
+Plot: When a Roman General is betrayed, and his family murdered by an emperor's corrupt son, he comes to Rome as a gladiator to seek revenge.
+Actors: Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed

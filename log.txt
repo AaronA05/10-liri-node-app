@@ -1,11 +1,4 @@
 ======================
-===== MUSIC DATA =====
-======================
-Artist: Kanye West
-Song: All Falls Down
-Preview song: null
-Album: The College Dropout (Explicit)
-======================
 ===== MOVIE DATA =====
 ======================
 Title: Gladiator
@@ -16,3 +9,21 @@ Country: USA, UK
 Langauge: English
 Plot: When a Roman General is betrayed, and his family murdered by an emperor's corrupt son, he comes to Rome as a gladiator to seek revenge.
 Actors: Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed
+======================
+===== MUSIC DATA =====
+======================
+Artist: Kanye West
+Song: All Falls Down
+Preview song: Sorry no preview URL available
+Album: The College Dropout (Explicit)
+======================
+===== MOVIE DATA =====
+======================
+Title: Mr. Nobody
+Year: 2009
+IMDB Rating: 7.9/10
+Rotten Tomatoes Rating: 64%
+Country: Belgium, Germany, Canada, France, USA, UK
+Langauge: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham

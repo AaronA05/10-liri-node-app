@@ -10,12 +10,14 @@ var spotifyKeys = new spotify({
 	secret: "52f849ef58d141cb88bc0a975e2d5a91",
 });
 
-//Node Twitter, access stored in keys file
+//Node Twitter
+//access stored in keys file, need to read this file
 var twitterClient = require("./keys.js");
 
 //Node FS
 var fs = require("fs");
 
+//variable used in future variables to make data more reader friendly
 var newLine = "\n";
 
 //Capture node line input for which command the user wants to execute (twitter, omdb, spotify, readfile)
@@ -38,37 +40,39 @@ function spotifyFunction(string){
 			var songData = data.tracks.items[0];
 			//Commented out the full data of the song, used to access other pieces of song data later
 			// console.log(songData);
-			// console.log("================================");
-			// console.log("================================");
 
-			//Artist Name 
-			console.log("Artist: " + songData.album.artists[0].name);
-			//Song name
-			console.log("Song: " + songData.name);
-			//Song preview URL - if their is no preview URL let the user know, otherwise log the preview url
-			if(songData.preview_url === "null"){
-				console.log("Sorry no preview URL available");
+			//Set variable to hold the string of the preview URL. Needed in case there is no URL available
+			//Will be passed to a variable to console log or write to the log.txt file
+			var previewURL = "";
+			//If there is no URL provide a string explaining this is not an error
+			if(songData.preview_url === null){
+				previewURL = "Sorry no preview URL available";
 			}else{
-				console.log("Preview song: " + songData.preview_url);
+				//if there is a url this will be passed to the full all data string
+				previewURL = songData.preview_url;
 			}
-			//Album song was on
-			console.log("Album: " + songData.album.name);
 
-			//Write the music information to the log.txt file
-			fs.appendFile("log.txt", "======================" + newLine +
+			//variable to hold all the music data so it can be written to .txt file and console logged as neede
+			var allMusicData = "======================" + newLine +
 				"===== MUSIC DATA =====" + newLine + 
 				"======================" + newLine +
 				"Artist: " + songData.album.artists[0].name + newLine +
 				"Song: " + songData.name + newLine +
-				"Preview song: " + songData.preview_url + newLine + 
-				"Album: " + songData.album.name + newLine
-				,"utf8", (err) =>{
-				if(err) throw err;
-				console.log("Song data added to file");
-			});
+				"Preview song: " + previewURL + newLine + 
+				"Album: " + songData.album.name + newLine;
+
+			//log the full music data string
+			console.log(allMusicData);
+
+			//write the full music data string to the txt file and log a message saying it has been stored
+			fs.appendFile("log.txt", allMusicData, "utf8", (err)=>{
+				if (err) throw err;
+				console.log("Song data added to log.txt file");
+			})
 		})
 }
 
+//OMDB function, passing the movie title as an argument to be used in the request function
 function omdbFunction(movieTitle){
 	request("http://www.omdbapi.com/?apikey=40e9cece&t=" + movieTitle, function(error, response, body){
 		if(error){
@@ -76,21 +80,11 @@ function omdbFunction(movieTitle){
 		}
 		//Parse the body of the return to make it accessible for later information
 		var movieInfo = JSON.parse(body);
-		//Commented out function to see the full data for the movie info and access data later
+		//Commented out string to see the full data for the movie info and access data later
 		// console.log(movieInfo);
-		// console.log("============================");
-		// console.log("============================");
-		console.log("Title: " + movieInfo.Title);
-		console.log("Year: " + movieInfo.Year);//year
-		console.log("IMDB Rating: " + movieInfo.Ratings[0].Value);//IMDB rating
-		console.log("Rotten Tomatoes Rating: " + movieInfo.Ratings[1].Value);//Rotten tomatoes rating
-		console.log("Country: " + movieInfo.Country);//country
-		console.log("Language: " + movieInfo.Language);//language
-		console.log("Plot: " + movieInfo.Plot);//plot
-		console.log("Actors: " + movieInfo.Actors);//actors
 
-		//Write the movie information to the log.txt file
-		fs.appendFile("log.txt", "======================" + newLine +
+		//variable string to be accessed when both logging and writing the move information
+		var allMovieData = "======================" + newLine +
 			"===== MOVIE DATA =====" + newLine + 
 			"======================" + newLine + 
 			"Title: " + movieInfo.Title + newLine +
@@ -100,11 +94,16 @@ function omdbFunction(movieTitle){
 			"Country: " + movieInfo.Country + newLine +
 			"Langauge: " + movieInfo.Language + newLine +
 			"Plot: " + movieInfo.Plot + newLine +
-			"Actors: " + movieInfo.Actors + newLine
-			 , "utf8", (err) => {
+			"Actors: " + movieInfo.Actors + newLine;
+
+		//log all the movie information to the console
+		console.log(allMovieData);
+
+		//Write the movie information to the log.txt file
+		fs.appendFile("log.txt", allMovieData, "utf8", (err) => {
 			if (err) throw err;
-			console.log("Movie data added to file");
-		} );
+			console.log("Movie data added to log.txt file");
+		});
 	})
 }
 
@@ -119,19 +118,16 @@ if (userCommand === "my-tweets"){
 			console.log(error);
 		}
 		//loop through the latest 20 tweets of user and log them to console
-		for(var i = 0; i <= 20 ; i++){
-			console.log(tweets[i].created_at);
-			console.log(tweets[i].text);
+		for(var i = 0; i < 20 ; i++){
+			console.log("Created at: " + tweets[i].created_at);
+			console.log("Tweet text: " + tweets[i].text);
+			console.log("==============");
+			console.log("==============");
 		}
-		
-		
 	});
-
 }
 
 //===================SPOTIFY=================
-// Client ID - 21b74791631d4f7cb24a100bea09212b
-// Client Secret - 52f849ef58d141cb88bc0a975e2d5a91
 
 if(userCommand === "spotify-this-song"){
 	var string = " ";
@@ -148,6 +144,8 @@ if(userCommand === "spotify-this-song"){
 		//Take all elements of the array and join them into a string to pass to spotify function as the string search
 		string = queryArr.join(" ");
 	}
+
+	//Pass the string of the song name to the spotify function to get all the data
 	spotifyFunction(string);
 }
 
@@ -156,17 +154,24 @@ if(userCommand === "spotify-this-song"){
 var movieKey = "40e9cece";
 
 if(userCommand === "movie-this"){
-	//Array to hold all user input from command line
-	var movieArray = [];
-	for(var j = 3; j < process.argv.length; j++){
-		movieArray.push(process.argv[j]);
+	//if user does not provide movie title, set to search for Mr. Nobody
+	if(process.argv[3] === undefined){
+		var movieString = "Mr. Nobody";
+		omdbFunction(movieString);
+	//else run a for loop to gather all inputs from user and use that as movie title
+	}else{
+		//Array to hold all user input from command line
+		var movieArray = [];
+		for(var j = 3; j < process.argv.length; j++){
+			movieArray.push(process.argv[j]);
+		}
+
+		//Take all items from array and join them with a "+" to properly pass into API Call
+		var movieTitle = movieArray.join("+");
+
+		//Pass the full move title into the OMDB function
+		omdbFunction(movieTitle);
 	}
-
-	//Take all items from array and join them with a "+" to properly pass into API Call
-	var movieTitle = movieArray.join("+");
-
-	//Pass the full move title into the OMDB function
-	omdbFunction(movieTitle);
 
 }	
 
@@ -178,7 +183,7 @@ if(userCommand === "do-what-it-says"){
 		}
 
 		//This splits the text from the random.txt file into two separate pieces
-		//We will use the two indexes to pass to the argument and call a function
+		//use the two indexes to pass to the argument and call a function
 		var command = data.split(",");
 		//First index in array is the command, second index is the string value for the spotify function
 		if(command[0] === "spotify-this-song"){

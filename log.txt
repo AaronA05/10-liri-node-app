@@ -27,3 +27,21 @@ Country: Belgium, Germany, Canada, France, USA, UK
 Langauge: English, Mohawk
 Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
 Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+======================
+===== MUSIC DATA =====
+======================
+Artist: Steve Miller Band
+Song: Space Cowboy
+Preview song: Sorry no preview URL available
+Album: Steve Miller Band
+======================
+===== MOVIE DATA =====
+======================
+Title: Robin Hood
+Year: 2010
+IMDB Rating: 6.7/10
+Rotten Tomatoes Rating: 43%
+Country: USA, UK
+Langauge: English, French, Ukrainian
+Plot: In 12th century England, Robin and his band of marauders confront corruption in a local village and lead an uprising against the crown that will forever alter the balance of world power.
+Actors: Russell Crowe, Cate Blanchett, Max von Sydow, William Hurt

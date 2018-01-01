@@ -45,3 +45,32 @@ Country: USA, UK
 Langauge: English, French, Ukrainian
 Plot: In 12th century England, Robin and his band of marauders confront corruption in a local village and lead an uprising against the crown that will forever alter the balance of world power.
 Actors: Russell Crowe, Cate Blanchett, Max von Sydow, William Hurt
+======================
+===== MUSIC DATA =====
+======================
+Artist: Mariah Carey
+Song: All I Want for Christmas Is You
+Preview song: https://p.scdn.co/mp3-preview/ab4f06069148ef8510d8681164479601d4617bed?cid=21b74791631d4f7cb24a100bea09212b
+Album: Merry Christmas
+======================
+===== MOVIE DATA =====
+======================
+Title: A Christmas Carol
+Year: 2009
+IMDB Rating: 6.8/10
+Rotten Tomatoes Rating: 54%
+Country: USA
+Langauge: English
+Plot: An animated retelling of Charles Dickens' classic novel about a Victorian-era miser taken on a journey of self-redemption, courtesy of several mysterious Christmas apparitions.
+Actors: Jim Carrey, Steve Valentine, Daryl Sabara, Sage Ryan
+======================
+===== MOVIE DATA =====
+======================
+Title: Up
+Year: 2009
+IMDB Rating: 8.3/10
+Rotten Tomatoes Rating: 98%
+Country: USA
+Langauge: English
+Plot: Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway.
+Actors: Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson
